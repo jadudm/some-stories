@@ -1,0 +1,9 @@
+[[rules]]
+    [rules.allowlist]
+        files = ['''_config.yml''',
+                 '''Gemfile.lock'''
+                ]
+[allowlist]
+    files = ['''_config.yml''',
+             '''Gemfile.lock'''
+            ]
