@@ -1,0 +1,13 @@
+{% assign size = more | size %}
+{% if size > 0  %}
+<div class="usa-accordion" style="margin-bottom: 2em;">
+    <h2 class="usa-accordion__heading">
+        <button class="usa-accordion__button" aria-expanded="false" aria-controls="more">
+            {{ include.prompt }}
+        </button>
+    </h2>
+    <div class="usa-accordion__content usa-prose" id="more" hidden>
+        {{ include.more }}
+    </div>
+</div>
+{% endif %}

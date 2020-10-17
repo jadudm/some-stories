@@ -35,8 +35,19 @@ plugins:
 
 collections_dir: _collections
 collections:
-  staff:
+  basics:
     output: true
+    order:
+      - intro.md
+      - salaries.md
+      - sixtysix.md
+      - howmanystaff.md
+      - fiftyfive.md
+  management:
+    output: true
+    order:
+      - management.md
+      - moremanagement.md
 
 
 

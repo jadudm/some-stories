@@ -5,14 +5,6 @@ title: Two Stories
 layout: hello
 ---
 
-One is a story for people who do the things.
-
-Another is about turning knobs.
-
-All people can, of course, read all stories.
-
-## About The Stories
-
 The stories are meant to be interacted with. 
 
 In all cases, the stories start with simple assumptions and approximations. 

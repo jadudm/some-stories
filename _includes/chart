@@ -1,0 +1,33 @@
+{% assign base = include.id | replace: " ", "" %}
+{% assign ctx =  base | prepend: "ctx" %}
+{% assign chart =  base | prepend: "chart" %}
+{% assign data = base | prepend: "data" %}
+{% assign labels = base | prepend: "labels" %}
+{% assign dataset = base | prepend: "dataset" %}
+{% assign options = base | prepend: "options" %}
+
+<script>
+var {{ ctx }} = document.getElementById("{{ base }}").getContext('2d');
+var {{ labels }} = [];
+var {{ dataset }} = {};
+var {{ options }} = {
+    scales: {
+        yAxes: [{
+            ticks: {
+                suggestedMin: 0,
+                suggestedMax: 16,
+            }
+        }]
+    }
+};
+
+var {{ chart }} = new Chart({{ ctx }}, {
+    type: 'bar',
+    data: {
+        labels: {{ labels }},
+        datasets: [ {{ dataset }} ],
+    }, 
+    options: {{ options }}
+});
+
+</script>

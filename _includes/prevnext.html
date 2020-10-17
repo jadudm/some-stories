@@ -1,0 +1,25 @@
+{% if page.collection %}
+    {% assign links = site[page.collection]  %}
+
+{% for link in links %}
+	{% if link.title == page.title %}
+		{% unless forloop.first %}
+			{% assign prev = tmpprev %}
+		{% endunless %}
+		{% unless forloop.last %}
+			{% assign next = links[forloop.index] %}
+		{% endunless %}
+	{% endif %}
+	{% assign tmpprev = link %}
+{% endfor %}
+
+<div style="z-index: 10; position: absolute; right: 1em; top: 1em;">
+    <!-- http://xahlee.info/comp/unicode_arrows.html -->
+    {% if prev %}<p>
+        <a href="{{ prev.url}}">&#x21E6; {{ prev.title }}</a>
+    </p>{% else %}<b>The Beginning.</b>{% endif %}
+    {% if next %}<p>
+        <a href="{{ next.url}}">{{ next.title }} &#x21E8;</a>
+    </p>{% else %}<b>The End.</b>{% endif %}
+</div>
+{% endif %}
