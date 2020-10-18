@@ -1,17 +1,12 @@
 ---
-title: More Wranglers
+title: Time
 layout: hello
-permalink: /moremeow/
+permalink: /time/
 ---
 
-I'll take this one step further.
+*If staff are working on hiring, they are not billing hours.*
 
-How about, along with director-level positions, we have one "group lead" for every 20 people. 
-
-Some mid-level wranglers to provide touchstones for mentorship, learning, cohesion, and the like are probably necessary.
-
-What does that do to the picture?
-
+Now, [what about staffing]({{ site.baseurl }}/staffing/)
 
 <div class="grid-row" style="padding-top: 3em;">
     <div class="grid-col-12" style="display: flex; justify-content: center;">
@@ -50,10 +45,10 @@ What does that do to the picture?
             backgroundColor: pattern.draw("diamond", "#fb8b24")
         },
         {
-            data: [ wranglerCost(5) ],
-            label: "The Wranglers",
-            backgroundColor: pattern.draw("zigzag-horizontal", "#e36414")
-        }
+            data: [ 0 ],
+            label: "Hiring Backfill",
+            backgroundColor: pattern.draw("zigzag-horizontal", "#0f4c5c")
+        },
     ]
     chartSH.label = "";
 
@@ -71,7 +66,7 @@ What does that do to the picture?
         return salaries;
     }
 
-    function wranglerCost (count) {
+    function backfillCost (count) {
         return salariesForStaff(count);
     }
 
@@ -80,12 +75,14 @@ What does that do to the picture?
         // Set the income.
         var income = billedFromStaff(staff);
         var salaries = salariesForStaff(staff);
-        var leads = Math.ceil(staff / 20);
-        var net = income - (salaries + wranglerCost(5) + wranglerCost(leads));
+        var hires = Math.ceil(staff * {{ site.data.constants.turnover }});
+        var overheadHours = hires * {{ site.data.constants.onboarding }};
+        var staffNeeded = Math.ceil(overheadHours / (48 * 32));
+        var net = income - (salaries + backfillCost(staffNeeded) );
 
         chartSH.data.datasets[1].data = [  net ];
         chartSH.data.datasets[2].data = [ salaries ];
-        chartSH.data.datasets[3].data = [ wranglerCost(5 + leads) ];
+        chartSH.data.datasets[3].data = [ backfillCost(staffNeeded) ];
 
         var message = "";
         if (net < {{ site.data.constants.fixed }}) {
@@ -95,8 +92,8 @@ What does that do to the picture?
                 + "&nbsp; We cleared the ${{ site.data.constants.fixed }}M with " 
                 + Math.ceil(staff) 
                 + " staff and "
-                + Math.ceil(5 + leads)
-                + " wranglers. " 
+                + staffNeeded
+                + " staff to cover hiring overheads. " 
                 + String.fromCodePoint(0x1F4B5);
         }
         document.getElementById("message").innerHTML = message;
@@ -112,14 +109,49 @@ What does that do to the picture?
 </script>
 
 {% capture more %}
+<p>
+    Whenever there is work that 18F staff does that is non-billable, we fall short of achieving cost-recoverability. On one hand, we could consider this part of the 8 hours/week that staff have for innovation and growth. However, from a staff perspective, taking part in hiring neither 1) contributes to their personal growth nor 2) advances their billable projects. 
+</p>
+
+<p> 
+    Therefore, I'm going to model all non-billable work as time that needs to be made up by additional billable staff time. This increases the number of staff we need to achieve cost recoverability.
+</p>
+<hr>
+<p>
+    An interview requires:
+</p>
+
+<ol>
+    <li>
+        Between 1-2 hours of phone work.
+    </li>
+    <li>
+        An interview cycle, involving 5 hours of staff time.
+    </li>
+    <li>
+        A report-out post-interview, another 5 hours of staff time.
+    </li>
+</ol>
 
 <p>
-    This increases 18F's overhead burden. We went from needing 55 staff to 63 staff, and we carry 9 wranglers as a result.
+    When new staff join, they typically have 80 hours of on-boarding time. This is non-billable.
 </p>
 
 <p>
-    If this feels like "too much management," that's OK. It's a model, and by <em>over-estimating</em> management costs, my result is a conservative estimate of what it takes to achieve cost recoverability.
+    New staff require orientation, some of which is provided by staff. This is non-billable; call this another 10 hours (for the new hire and existing staff... so, 20 hours).
+</p>
+
+<p>
+    A hire  (conservatively) hits the bottom line as {{ site.data.constants.onboarding }} hours of non-billable time.
+</p>
+
+<p>
+    That time must be made up. Making up time means having people to do the work. 
+</p>
+
+<p>
+    <b>I'm modeling time lost to hiring as time that must be made up by hiring additional staff.</b>
 </p>
 
 {% endcapture %}
-{% include tellme prompt="yet more management" more=more %}
+{% include tellme prompt="the details of hiring" more=more %}

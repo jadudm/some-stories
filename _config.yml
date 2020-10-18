@@ -48,6 +48,16 @@ collections:
     order:
       - management.md
       - moremanagement.md
+      - nokitty.md
+  hiring:
+    output: true
+    order:
+      - hiring.md
+      - time.md
+  staffing:
+    output: true
+    order:
+      - staffing.md
 
 
 

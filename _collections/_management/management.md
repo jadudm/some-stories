@@ -113,7 +113,7 @@ permalink: /meow/
             message = "Not there yet.";
         } else {
             message = String.fromCodePoint(0x1F4B5)
-                + " We cleared the ${{ site.data.constants.fixed }}M with " 
+                + "&nbsp; We cleared the ${{ site.data.constants.fixed }}M with " 
                 + Math.floor(staff) 
                 + " staff. " 
                 + String.fromCodePoint(0x1F4B5);
