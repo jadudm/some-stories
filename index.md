@@ -1,27 +1,23 @@
 ---
 # Feel free to add content and custom Front Matter to this file.
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-title: Two Stories
+title: Trying To Understand
 layout: hello
 ---
 
-The stories are meant to be interacted with. 
+[intro](/intro/)
+ 
+Three months into my time at 18F, I began thinking about leaving. 
 
-In all cases, the stories start with simple assumptions and approximations. 
+Why?
 
-Then, those assumptions are peeled back one-by-one. 
+I have a two year term, potentially renewable for two more. 
 
-None of the stories should be mistaken for reality.
+What networks can I build, and how quickly? What work can I do that evidences my strengths? What next steps lead to my being able to do good work and thrive?
 
-## A Story For People Who Do Things
+**This is unhealthy**. 
 
-<ol>
-{% for p in site.staff %}
-    <li><a href="{{ p.url | prepend: site.baseurl }}">{{p.title}}</a></li>
-{% endfor %}
-</ol>
-
-## A Story For People Who Turn Knobs
+It is unhealthy for me, and it is unhealthy for the organization. But 18F is structured poorly, and if we want to continue attracting excellent staff to engage in transformative work within government, 
 
 <hr>
 

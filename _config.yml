@@ -58,6 +58,10 @@ collections:
     output: true
     order:
       - staffing.md
+      - projects.md
+      - gaps.md
+      - teams.md
+      - staffinglead.md
 
 
 
