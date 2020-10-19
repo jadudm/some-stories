@@ -1,0 +1,5 @@
+applications:
+- name: some-stories
+  memory: 16M 
+  instances: 1
+  buildpack: https://github.com/cloudfoundry/staticfile-buildpack
