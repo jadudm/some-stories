@@ -71,7 +71,7 @@ numberofstaff: 63
         prevcolor = "#000000";
         while (weeks <= 48) {
             next = _.sample([1, 2, 8, 10, 12]);
-            while (next == prev) {
+            while ((next == prev) || (prev == 1 && next == 2) || (prev == 2 && next == 1)) {
                 next = _.sample([1, 2, 8, 10, 12]);
             }
             prev = next;

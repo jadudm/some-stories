@@ -3,3 +3,30 @@ hourly: 0.000285
 salary: 0.000104
 turnover: 0.3
 onboarding: 110
+hoursperweek: 32
+
+engagements:
+  PA:
+    name: Path Analysis
+    abbr: PA
+    duration: 8
+    staff:
+      low: 2
+      high: 3
+    value: 0.25
+  EI:
+    name: Exploration and Iteration
+    abbr: EI
+    duration: 12
+    staff: 
+      low: 4
+      high: 6
+    value: 0.75
+  BU:
+    name: Bundle
+    abbr: BU
+    duration: 20
+    staff:
+      low: 4
+      high: 6
+    value: 0.855

@@ -68,4 +68,4 @@ Wait! That was still a lie! We do not bill *individually* to projects. **We bill
 
 But... we do not hold teams constant through a calendar year. So, this picture... is not quite accurate.
 
-**I tell nothing but the truth.**
+I tell nothing **but** the truth.
